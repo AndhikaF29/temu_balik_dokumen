@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistem Temu Balik Dokumen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_result.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistem Temu Balik Dokumen</h1>
+
+        <!-- Form Input -->
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Upload Dokumen (PDF, DOC, DOCX, TXT):</label>
+                <input type="file" name="documents[]" multiple accept=".txt,.doc,.docx,.pdf">
+                <small class="file-help">Anda dapat memilih beberapa file sekaligus</small>
+            </div>
+            <div class="form-group">
+                <label>Query Pencarian:</label>
+                <textarea name="query" placeholder="Masukkan query pencarian..."></textarea>
+            </div>
+            <button type="submit">Generate</button>
+        </form>
+
+        <!-- Error Message -->
+        {% if error %}
+        <div class="error-message">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Results Section -->
+        {% if similarities %}
+        <div class="results-section">
+            <h2>Hasil Pencarian</h2>
+
+            <div class="query-section">
+                <h3>Query Asli:</h3>
+                <p>{{ query }}</p>
+
+                <h3>Token Query:</h3>
+                <p>{{ original_query|join(", ") }}</p>
+
+                <h3>Hasil Stemming Query:</h3>
+                <p>{{ processed_query|join(", ") }}</p>
+            </div>
+
+            <h3>Hasil Similarity:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dokumen</th>
+                        <th>Similarity Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doc, score in similarities %}
+                    <tr>
+                        <td>{{ doc }}</td>
+                        <td>{{ "%.4f"|format(score) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="preprocessing-section">
+            <h3>Detail Preprocessing Dokumen</h3>
+            {% for doc_name, original, stemmed in documents %}
+            <div class="document-detail">
+                <h4>{{ doc_name }}</h4>
+
+                <div class="tokens">
+                    <h5>Token Asli:</h5>
+                    <p>{{ original|join(", ") }}</p>
+
+                    <h5>Hasil Stemming:</h5>
+                    <p>{{ stemmed|join(", ") }}</p>
+
+                    <p class="word-count">Jumlah kata dasar: {{ stemmed|length }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

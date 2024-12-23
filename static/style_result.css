@@ -1,0 +1,271 @@
+/* Global styles and reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #2d3748;
+    line-height: 1.6;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Headers */
+h1 {
+    text-align: center;
+    color: #00bd8e;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, #00bd8e, #13ffb8);
+    border-radius: 2px;
+}
+
+h2 {
+    color: #00bd8e;
+    font-size: 1.8rem;
+    margin: 1.5rem 0 1rem;
+    padding-left: 1rem;
+    border-left: 4px solid #00aa77;
+}
+
+h3 {
+    color: #00bd8e;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0.3rem;
+}
+
+h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #00bd8e 0%, transparent 100%);
+}
+
+h4 {
+    color: #2d3748;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+/* Sections with enhanced styling */
+.query-section, .results-section, .preprocessing-section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.query-section:hover, .results-section:hover, .preprocessing-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.1),
+                0 4px 6px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Query Section specific styles */
+.query-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+    border-left: 5px solid #00bd8e;
+}
+
+.query-section p {
+    background-color: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px dashed #cbd5e0;
+    margin: 0.5rem 0;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+/* Table styles with enhanced design */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background: linear-gradient(90deg, #00bd8e, #06db9b);
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: left;
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid #00aa77;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+tr:hover td {
+    background-color: #ebf8ff;
+}
+
+/* Document details with enhanced styling */
+.document-detail {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+    transition: transform 0.2s ease;
+}
+
+.document-detail:hover {
+    transform: translateY(-2px);
+}
+
+.tokens {
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.tokens p {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin: 0.8rem 0;
+    word-wrap: break-word;
+    line-height: 1.8;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+.word-count {
+    color: #4a5568;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    text-align: right;
+    padding: 0.5rem 1rem;
+    background-color: #edf2f7;
+    border-radius: 6px;
+    display: inline-block;
+    float: right;
+}
+
+/* Enhanced button styles */
+.button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, #00bd8e, #06db9b);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 6px -1px rgba(66, 153, 225, 0.3);
+}
+
+.button:hover {
+    background: linear-gradient(90deg, #3182ce, #5a67d8);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px -1px rgba(66, 153, 225, 0.4);
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    .query-section, .results-section, .preprocessing-section {
+        padding: 1.5rem;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    th, td {
+        min-width: 140px;
+        white-space: nowrap;
+    }
+    
+    .document-detail {
+        padding: 1rem;
+    }
+    
+    .tokens p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Custom scrollbar for modern browsers */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4299e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3182ce;
+}
